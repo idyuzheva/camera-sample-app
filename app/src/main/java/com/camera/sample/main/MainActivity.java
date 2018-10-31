@@ -1,4 +1,4 @@
-package com.camera.sample;
+package com.camera.sample.main;
 
 import android.Manifest;
 import android.content.pm.PackageManager;
@@ -14,6 +14,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 
+import com.camera.sample.R;
+
 import org.opencv.android.BaseLoaderCallback;
 import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.LoaderCallbackInterface;
@@ -21,6 +23,8 @@ import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
 
 public class MainActivity extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
+
+    private static final int PERMISSIONS_REQUEST_CAMERA = 10;
 
     private CameraBridgeViewBase mOpenCvCameraView;
 
@@ -70,39 +74,28 @@ public class MainActivity extends AppCompatActivity implements CameraBridgeViewB
             @Override
             public void onManagerConnected(int status) {
                 switch (status) {
-                    case LoaderCallbackInterface.SUCCESS: {
+                    case LoaderCallbackInterface.SUCCESS:
                         mOpenCvCameraView.enableView();
-                    }
-                    break;
-                    default: {
+                        break;
+                    default:
                         super.onManagerConnected(status);
-                    }
-                    break;
                 }
             }
         });
     }
 
-    private static final int PERMISSIONS_REQUEST_CAMERA = 10;
-
     @Override
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case PERMISSIONS_REQUEST_CAMERA: {
+            case PERMISSIONS_REQUEST_CAMERA:
                 // If request is cancelled, the result arrays are empty.
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-
+                if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     startCam();
                 } else {
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
                 }
-                return;
-            }
-
-            // other 'case' lines to check for other
-            // permissions this app might request.
+                break;
         }
     }
 
