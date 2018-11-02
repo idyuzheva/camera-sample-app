@@ -1,4 +1,4 @@
-package com.camera.sample.main;
+package com.camera.sample;
 
 import android.Manifest;
 import android.content.pm.PackageManager;

@@ -3,4 +3,8 @@
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
+
+    <color name="colorVideoNormal">#00796B</color>
+    <color name="colorVideoPressed">#26A69A</color>
+    <color name="colorVideoDisabled">#7A00796B</color>
 </resources>

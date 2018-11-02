@@ -43,6 +43,10 @@ public class JavaCameraView extends CameraBridgeViewBase implements PreviewCallb
     private SurfaceTexture mSurfaceTexture;
     private int mPreviewFormat = ImageFormat.NV21;
 
+    public SurfaceTexture getSurfaceTexture(){
+        return mSurfaceTexture;
+    }
+
     public static class JavaCameraSizeAccessor implements ListItemAccessor {
 
         @Override
